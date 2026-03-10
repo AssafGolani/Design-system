@@ -1,0 +1,45 @@
+import { computed, Directive, input } from '@angular/core';
+import { hlm } from '@spartan-ng/ui-core';
+import { cva, type VariantProps } from 'class-variance-authority';
+import type { ClassValue } from 'clsx';
+
+export const inputVariants = cva(
+  'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  {
+    variants: {
+      size: {
+        default: 'h-10',
+        sm: 'h-9',
+        lg: 'h-11',
+      },
+      error: {
+        auto: '[&.ng-invalid.ng-touched]:text-destructive [&.ng-invalid.ng-touched]:border-destructive [&.ng-invalid.ng-touched]:focus-visible:ring-destructive',
+        true: 'text-destructive border-destructive focus-visible:ring-destructive',
+      },
+    },
+    defaultVariants: {
+      size: 'default',
+      error: 'auto',
+    },
+  },
+);
+
+export type InputVariants = VariantProps<typeof inputVariants>;
+
+@Directive({
+  selector: '[hlmInput]',
+  host: {
+    '[class]': '_computedClass()',
+  },
+})
+export class HlmInputDirective {
+  readonly userClass = input<ClassValue>('', { alias: 'class' });
+  readonly size = input<InputVariants['size']>('default');
+  readonly error = input<InputVariants['error']>('auto');
+
+  protected readonly _computedClass = computed(() =>
+    hlm(inputVariants({ size: this.size(), error: this.error() }), this.userClass()),
+  );
+}
+
+export const HlmInputImports = [HlmInputDirective] as const;
