@@ -1,59 +1,46 @@
-# DesignSystem
+# Design System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.1.
+Angular monorepo containing a reusable UI component library and an interactive showcase application.
 
-## Development server
+## Projects
 
-To start a local development server, run:
+| Project     | Type        | Path                 | Description                                      |
+| ----------- | ----------- | -------------------- | ------------------------------------------------ |
+| `ds`        | Library     | `projects/ds`        | 14 UI components built on spartan-ng + Tailwind   |
+| `showcase`  | Application | `projects/showcase`  | Interactive demo app to browse and preview components |
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Quick Start
 
 ```bash
-ng generate component component-name
+# Install dependencies
+npm install
+
+# Run the showcase app
+ng serve showcase
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Open [http://localhost:4200](http://localhost:4200) to browse all components.
 
-```bash
-ng generate --help
-```
+## Available Components
+
+Button, Input, Label, Checkbox, Switch, Select, Card, Separator, Alert, Badge, Avatar, Dialog, Tabs, Accordion.
+
+See [projects/ds/README.md](projects/ds/README.md) for usage details and API reference.
 
 ## Building
 
-To build the project run:
-
 ```bash
-ng build
+# Build the library
+ng build ds
+
+# Build the showcase app
+ng build showcase
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Tech Stack
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Angular** 21.x (standalone components, signals)
+- **Tailwind CSS** 4.x with oklch design tokens
+- **spartan-ng** brain (behavior) + helm (styling) pattern
+- **class-variance-authority** for component variants
+- **Vitest** for unit testing
