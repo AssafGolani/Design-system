@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import { BrnTabsImports } from '@spartan-ng/brain/tabs';
-import { HlmTabsImports } from 'ds';
-import { HlmCardImports } from 'ds';
-import { HlmButtonDirective } from 'ds';
-import { HlmInputDirective } from 'ds';
-import { HlmLabelDirective } from 'ds';
+import { HlmTabsImports, HlmCardImports, HlmButtonDirective, HlmInputDirective, HlmLabelDirective } from 'ds';
 
 @Component({
   selector: 'app-tabs-demo',
   imports: [BrnTabsImports, ...HlmTabsImports, ...HlmCardImports, HlmButtonDirective, HlmInputDirective, HlmLabelDirective],
   template: `
     <section class="space-y-8">
-      <h1 class="text-3xl font-bold">Tabs</h1>
-      <p class="text-muted-foreground">A set of layered sections of content — known as tab panels — that are displayed one at a time.</p>
+      <div>
+        <h1 class="text-3xl font-bold">Tabs</h1>
+        <p class="mt-2 text-muted-foreground">A set of layered sections of content — known as tab panels — that are displayed one at a time.</p>
+      </div>
 
       <div class="space-y-4">
         <h2 class="text-xl font-semibold">Default</h2>
@@ -29,12 +27,12 @@ import { HlmLabelDirective } from 'ds';
               </div>
               <div hlmCardContent class="space-y-2">
                 <div class="space-y-1">
-                  <label hlmLabel for="name">Name</label>
-                  <input hlmInput id="name" value="Pedro Duarte" />
+                  <label hlmLabel for="tab-name">Name</label>
+                  <input hlmInput id="tab-name" value="Pedro Duarte" />
                 </div>
                 <div class="space-y-1">
-                  <label hlmLabel for="username">Username</label>
-                  <input hlmInput id="username" value="@peduarte" />
+                  <label hlmLabel for="tab-username">Username</label>
+                  <input hlmInput id="tab-username" value="&#64;peduarte" />
                 </div>
               </div>
               <div hlmCardFooter>
@@ -50,12 +48,12 @@ import { HlmLabelDirective } from 'ds';
               </div>
               <div hlmCardContent class="space-y-2">
                 <div class="space-y-1">
-                  <label hlmLabel for="current">Current password</label>
-                  <input hlmInput id="current" type="password" />
+                  <label hlmLabel for="tab-current">Current password</label>
+                  <input hlmInput id="tab-current" type="password" />
                 </div>
                 <div class="space-y-1">
-                  <label hlmLabel for="new">New password</label>
-                  <input hlmInput id="new" type="password" />
+                  <label hlmLabel for="tab-new">New password</label>
+                  <input hlmInput id="tab-new" type="password" />
                 </div>
               </div>
               <div hlmCardFooter>
