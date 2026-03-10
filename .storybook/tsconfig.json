@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": [],
+    "target": "ES2022",
+    "module": "preserve"
+  },
+  "include": ["./preview.ts", "../stories/**/*"],
+  "exclude": ["../node_modules"]
+}
